@@ -5,10 +5,10 @@ import os
 
 
 def count_lines(file_path):
-    '''
+    """
     author: windows2000
     function: count the number of lines in a file
-    '''
+    """
     f = open(file_path, 'rbU')
     line_cnt = 0
     while True:
@@ -20,9 +20,9 @@ def count_lines(file_path):
 
 
 def split_file_by_line(in_file, split_num, out_dir='.', out_prefix=None):
-    '''
+    """
     author: windows2000
-    fuction: split file by line.
+    function: split file by line.
     args：
         infile: input file
         split_num: how many pieces to divide input file into
@@ -37,7 +37,7 @@ def split_file_by_line(in_file, split_num, out_dir='.', out_prefix=None):
                            out_prefix='splited')
         returns a list:
         ['./out/splited_1.dat', './out/splited_2.dat', './out/splited_3.dat']
-    '''
+    """
     if split_num == 1:
         return [in_file]
 
@@ -63,4 +63,5 @@ def split_file_by_line(in_file, split_num, out_dir='.', out_prefix=None):
         index = index if index < split_num else (split_num - 1)
         out_file_objs[index].write(each_line)
         cur_line_num += 1
+
     return out_files

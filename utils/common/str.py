@@ -5,10 +5,10 @@ import string
 
 
 def hex_dump(buf):
-    '''
+    """
     author: windows2000
     function: return the hexadecimal value of each character in buf
-    '''
+    """
     output = ''
     buf_size = len(buf)
 

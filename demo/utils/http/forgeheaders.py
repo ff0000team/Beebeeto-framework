@@ -8,7 +8,7 @@ from copy import deepcopy
 
 class BaseUserAgent(object):
     info = {
-        'browser_name': 'user agent details',
+        'broswer_name': 'user agent details',
     }
 
     def randomly_get(self):
@@ -98,7 +98,7 @@ class ForgeHeaders(object):
 
     def __init__(self, platform=None):
         platform = platform or self.platforms[randint(0, len(self.platforms) - 1)]
-        browser, user_agent_details = eval('%s().randomly_get()' % platform)
+        broswer, user_agent_details = eval('%s().randomly_get()' % platform)
         self.headers = deepcopy(self._headers)
         self.headers.setdefault('User-Agent', user_agent_details)
 
