@@ -27,7 +27,7 @@ class Webshell:
         return self._password
 
     def get_content(self):
-        return self._content.format(self._password)
+        return self._content.format(pwd=self._password)
 
     def check(self, url):
         try:
